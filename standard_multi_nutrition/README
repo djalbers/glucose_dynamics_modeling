@@ -1,0 +1,38 @@
+this directory contains a code that will integrate the sturgis
+glucose/insulin model given the following nutrition schemes:
+
+ 1 - continous feeding, 2 - square feeding function, 3 - pulse feeding
+ with decay, 4 - random levels of continous feeding (for a
+ population), 6 - noisy but structured (three meals a day near 8 am,
+ 12 pm and 6 pm) mealtimes, pulse with decay, 7 - random breakfast,
+ then retain structured time between meals, pulse with decay, 8 -
+ random meal times, pulse with decay, 9 - random breakfast, retain
+ time between meals, pulse with decay, differing feeding rates (for
+ the population)
+
+many of these simulations are discussed in:
+http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0048058
+
+integrate_plot_glucose_DEMO.m: a script that calls the strugis glucose model
+and creates two data files, documented below.  the parameter settings are
+outlined in the script.
+
+glucose_insulin.m: function that integrates the sturgis model.
+
+feeding.m: function that controls the nutrition for the individual or
+population --- the feeding regimen is set by a parameter in
+integrate_plot_glucose_DEMO.
+
+artifical_patient_glucose.data: an output file of glucose values created by
+integrate_plot_glucose_DEMO.  the format of the file is a matrix:
+identifier time glucose value
+
+food.data: a data file that defines the nutrition for the individual or
+population.
+
+basic_statistics: simple, basics statistical analyses of the output of the
+glucose and nutrition time series (food.data,
+artifical_glucose_time_series.data).
+
+
+

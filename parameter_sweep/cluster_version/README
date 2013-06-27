@@ -1,0 +1,57 @@
+this directory contains the code that will integrate the sturgis
+glucose/insulin model that will sweep though a choosen parameter and will
+create a directory and output files with nutrition and simulated glucose
+values. the code is only stupidly parallelized and is written to run on a
+torque cluster.
+
+the parameter choices include:
+
+
+1 - plasma volume V_p; 2 - insulin volume V_i; 3 - glucose space V_g;
+4 - E exchange rate for insulin between remote and plasma
+compartments; 5 - I_G feeding rate THIS IS SET VIA THE FEEDING
+SCHEMES; 6 - t_p time constant for plasma insulin degredation; 6 - t_i
+time constant for remote insulin - degredation; 7 - t_d delay between
+plasma insulin and glucose production; - 8 - R_m; 9 - a_1 constant in
+f_1; 10 - C_1; 11 - C_2; 12 - C_3; 13 - C_4; - 14 - C_5; 15 - U_b; 16
+- U_0; 17 - U_m; 18 - R_g; 19 - alpha; 20 - beta.
+ 
+the nominal values are set to the defaults as given in the sturgis paper.
+
+
+given the following nutrition schemes:
+
+ 1 - continous feeding, 2 - square feeding function, 3 - pulse feeding
+ with decay, 4 - random levels of continous feeding (for a
+ population), 6 - noisy but structured (three meals a day near 8 am,
+ 12 pm and 6 pm) mealtimes, pulse with decay, 7 - random breakfast,
+ then retain structured time between meals, pulse with decay, 8 -
+ random meal times, pulse with decay, 9 - random breakfast, retain
+ time between meals, pulse with decay, differing feeding rates (for
+ the population)
+
+many of these simulations are discussed in the forthcoming artical by albers
+and hripcsak titled dynamical phenotyping
+
+matlab_utilities: contains code written by others required to run the
+submission script
+
+submit_glucose.m: matlab script that submits the glucose parameter sweep to
+the torque matlab cluster.
+
+glucose_insulin.m: function that integrates the sturgis model.
+
+feeding.m: function that controls the nutrition for the individual or
+population --- the feeding regimen is set by a parameter in
+integrate_plot_glucose_DEMO.
+
+artifical_patient_glucose.data: an output file of glucose values created by
+integrate_plot_glucose_DEMO.  the format of the file is a matrix:
+identifier time glucose value
+
+food.data: a data file that defines the nutrition for the individual or
+population.
+
+
+
+

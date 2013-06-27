@@ -1,0 +1,31 @@
+this MATLAB code simulates the glucose/insulin model discussed in
+Sturgis et al.
+
+the src is split into two categories:
+
+standard_mulit_nutrition: the source in this directory represent the
+standard, basic code for simulating glucose/insulin dynamics using
+different nutrition regimens and population compostions.  this code
+will output data files that document both the glucose and the
+nutrition in time.
+
+parameter_sweep: the source in this directory represent the
+glucose/insulin dynamics under parameter variation.  this source
+itself is split into two versions, cluster and non-cluster
+versions. both versions run essentially the same scripts and
+functions; the cluster version is meant to run on a beowulf cluster
+with matlab and a queue (e.g., torque) where many parameters are
+varied; the non-cluster version is meant to run on any machine and
+varies a single parameter at a time.
+
+
+
+
+
+
+
+
+
+
+
+
